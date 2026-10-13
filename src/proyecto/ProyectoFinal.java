@@ -62,9 +62,9 @@ public class ProyectoFinal {
                        System.out.println("Debe ingresar al menos 1 producto. Intente nuevamente:");
                        numproductos = sc.nextInt();
                    }
-                     sc.nextLine();
+                     
                    for (int i = 0; i < numproductos; i++) {
-                       
+                       sc.nextLine();
                        System.out.println("Ingrese el codigo del producto: ");
                        codigo = sc.nextLine();
                        
@@ -288,6 +288,9 @@ public class ProyectoFinal {
         
                 
             
+        
+        
+        
        
                 
             }

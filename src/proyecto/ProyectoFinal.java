@@ -21,7 +21,7 @@ public class ProyectoFinal {
     
      int opcion, numproductos, codigo, cantidad = 0, formadepago, totalproductos = 0, ventasrealizadas = 0,  ventasefectivo = 0, ventastarjeta = 0, ventastransferencia = 0;
      String nombre;
-     double precio = 0, subtotal = 0, montodesc , descuento = 0, IVA, total = 0, efectivo = 0, cambio = 0, numerotarjet, codigoseguridadtarjet, totalvendido = 0;
+     double precio = 0, subtotal = 0, montodesc , descuento = 0, IVA, total = 0, efectivo = 0, cambio = 0, numerotarjet, codigoseguridadtarjet, totalvendido = 0, promedioventas = 0, ventaMenor = 0, ventaMayor = 0;
      
     
         do {
@@ -78,6 +78,7 @@ public class ProyectoFinal {
                        
                    }
                    
+                   
                   if (subtotal < 200) {
                         System.out.println("No aplica descuento");
                         descuento = 0;
@@ -105,6 +106,13 @@ public class ProyectoFinal {
                            "2. Tarjeta\n"+
                            "3. Transferencia");
                    formadepago = sc.nextInt();
+                   
+                   if (total > ventaMayor) {
+                       ventaMayor = total;
+                   }
+                   if (total < ventaMenor) {
+                       ventaMenor = total;
+                   }else{}
                    
                    
                    switch(formadepago){
@@ -158,6 +166,11 @@ public class ProyectoFinal {
                    }
                    ventasrealizadas++;
                    totalvendido += total;
+                   promedioventas = (totalvendido/ventasrealizadas); 
+                   
+                   if (ventasrealizadas == 0) {
+                       System.out.println("No existen ventas realizadas");
+                   }else{}
                    
                    
                     System.out.println("============0RESUMEN DE SU COMPRA==================");
@@ -199,14 +212,14 @@ public class ProyectoFinal {
                    
                case 2:
                    
-                   
+                        System.out.println("======================CONSULTAR CAJA========================");
                         System.out.println("El total de ventas realizadas es: " + ventasrealizadas  );
                         System.out.println("El total de productos vendidos son: " + totalproductos);
                         System.out.println("El valor total de lo vendido es: : " + totalvendido);
                         System.out.println("El total de ventas en efectivo es. " + ventasefectivo);
                         System.out.println("El total de ventas con tarjeta es: " + ventastarjeta);
                         System.out.println("El total de ventas con transferencia es: " + ventastransferencia);
-                   
+                        System.out.println("=============================================================");
                    
                    
                    break;
@@ -214,6 +227,18 @@ public class ProyectoFinal {
                    
                case 3:
                    
+                   
+                   System.out.println("===================ESTADISTICAS======================");
+                   System.out.println("El número total de ventas es: " + ventasrealizadas);
+                   System.out.println("La cantidad total de productos vendidos es: " + totalproductos);
+                   System.out.println("El total de dinero vendido es: " + totalvendido);
+                   System.out.println("El promedio de dinero por venta es: " + promedioventas);
+                   System.out.println("Cantidad de ventas por efectivo: " + ventasefectivo);
+                   System.out.println("Cantidad de ventas por tarjeta: " + ventastarjeta);
+                   System.out.println("Cantidad de ventas por tranferencia:" + ventastransferencia);
+                   System.out.println("La venta Mayor es " + ventaMayor);
+                   System.out.println("La venta menor es: " + ventaMenor);
+                   System.out.println("=====================================================");
                    break;
                    
                    
